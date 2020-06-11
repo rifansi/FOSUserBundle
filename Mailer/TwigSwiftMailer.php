@@ -40,6 +40,9 @@ class TwigSwiftMailer implements MailerInterface
      */
     protected $parameters;
 
+    /**
+     * TwigSwiftMailer constructor.
+     */
     public function __construct(\Swift_Mailer $mailer, UrlGeneratorInterface $router, Environment $twig, array $parameters)
     {
         $this->mailer = $mailer;
