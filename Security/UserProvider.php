@@ -90,4 +90,8 @@ class UserProvider implements UserProviderInterface
     {
         return $this->userManager->findUserByUsername($username);
     }
+
+    public function loadUserByIdentifier(string $identifier): SecurityUserInterface {
+        return $this->userManager->findUserByUsername($identifier);
+    }
 }
