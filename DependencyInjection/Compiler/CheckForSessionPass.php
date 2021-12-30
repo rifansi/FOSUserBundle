@@ -27,14 +27,14 @@ class CheckForSessionPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if ($container->has('fos_user.session') && !$container->has('session')) {
-            $message = 'FOSUserBundle requires the "session" service to be available.';
+        // if ($container->has('fos_user.session') && !$container->has('session')) {
+        //     $message = 'FOSUserBundle requires the "session" service to be available.';
 
-            if (class_exists(Recipe::class)) {
-                $message .= ' Uncomment the "session" section in "config/packages/framework.yaml" to activate it.';
-            }
+        //     if (class_exists(Recipe::class)) {
+        //         $message .= ' Uncomment the "session" section in "config/packages/framework.yaml" to activate it.';
+        //     }
 
-            throw new \LogicException($message);
-        }
+        //     throw new \LogicException($message);
+        // }
     }
 }
