@@ -88,14 +88,6 @@ class FOSUserExtension extends Extension
         $container->setAlias('fos_user.util.token_generator', $config['service']['token_generator']);
         $container->setAlias('fos_user.user_manager', new Alias($config['service']['user_manager'], true));
 
-        if ($config['use_listener'] && isset(self::$doctrineDrivers[$config['db_driver']])) {
-            $listenerDefinition = $container->getDefinition('fos_user.user_listener');
-            $listenerDefinition->addTag(self::$doctrineDrivers[$config['db_driver']]['tag']);
-            if (isset(self::$doctrineDrivers[$config['db_driver']]['listener_class'])) {
-                $listenerDefinition->setClass(self::$doctrineDrivers[$config['db_driver']]['listener_class']);
-            }
-        }
-
         if ($config['use_username_form_type']) {
             $loader->load('username_form_type.xml');
         }
